@@ -1,0 +1,70 @@
+.learning-mode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 40px);
+  position: relative;
+  width: 100%;
+}
+
+.navigation-controls {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px 20px;
+  border-radius: 25px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.navigation-controls button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 0.9em;
+  min-width: 90px;
+}
+
+.navigation-controls button:disabled {
+  background-color: #4c4c4c;
+  cursor: not-allowed;
+}
+
+.navigation-controls button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.card-counter {
+  color: #fff;
+  font-size: 1.1em;
+  padding: 0 15px;
+  min-width: 60px;
+  text-align: center;
+}
+
+.error {
+  color: #ff6b6b;
+  background-color: rgba(255, 107, 107, 0.1);
+  padding: 10px;
+  margin: 20px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.message {
+  color: #cccccc;
+  text-align: center;
+  padding: 20px;
+  background-color: #252526;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+} 

@@ -1,0 +1,146 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+  background-color: #1e1e1e;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #252526;
+  position: fixed;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar.collapsed {
+  transform: translateX(-200px);
+}
+
+.sidebar-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mode-button {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #3c3c3c;
+  background-color: #2d2d2d;
+  color: #cccccc;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.mode-button.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.mode-button:hover:not(.active) {
+  background-color: #3c3c3c;
+}
+
+.collapse-button {
+  position: absolute;
+  right: -30px;
+  top: 20px;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  background-color: #252526;
+  color: #cccccc;
+  border: 1px solid #3c3c3c;
+  border-left: none;
+  cursor: pointer;
+  border-radius: 0 4px 4px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.collapse-button::before {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-right: 6px solid #cccccc;
+  transition: transform 0.3s ease;
+}
+
+.sidebar.collapsed .collapse-button::before {
+  transform: rotate(180deg);
+}
+
+.content {
+  flex-grow: 1;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-left: 0;
+  transition: padding-left 0.3s ease;
+  width: 100%;
+}
+
+.content.expanded {
+  margin-left: 0;
+}
+
+.main-content h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
