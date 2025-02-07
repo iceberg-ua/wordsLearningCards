@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
+import { useLanguage } from '../contexts/LanguageContext'
 import WordCard from './WordCard'
 import './LearningMode.css'
 
 interface Word {
-  id: number
-  word: string
-  translation: string
+  id: string;
+  word: string;
+  translation: string;
 }
 
 const LearningMode = () => {
@@ -13,10 +14,13 @@ const LearningMode = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
+  const { selectedLanguage } = useLanguage()
 
   useEffect(() => {
-    fetchWords()
-  }, [])
+    if (selectedLanguage) {
+      fetchWords()
+    }
+  }, [selectedLanguage])
 
   const shuffleArray = (array: Word[]) => {
     const shuffled = [...array]
@@ -29,7 +33,7 @@ const LearningMode = () => {
 
   const fetchWords = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/words')
+      const response = await fetch(`http://localhost:5000/api/words/${selectedLanguage?.id}`)
       const data = await response.json()
       const shuffledWords = shuffleArray(data)
       setWords(shuffledWords)

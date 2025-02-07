@@ -43,12 +43,12 @@
 
 .app {
   display: flex;
-  min-height: 100vh;
+  min-height: 50%;
   background-color: #1e1e1e;
 }
 
 .sidebar {
-  width: 200px;
+  width: 250px;
   background-color: #252526;
   position: fixed;
   height: 100vh;
@@ -57,17 +57,25 @@
   transition: transform 0.3s ease;
   z-index: 1000;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
 }
 
-.sidebar.collapsed {
-  transform: translateX(-200px);
+.sidebar-top {
+  flex-grow: 1;
+  overflow-y: auto;
 }
 
-.sidebar-content {
+.sidebar-bottom {
   padding: 20px;
+  border-top: 1px solid #3c3c3c;
+}
+
+.mode-buttons {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  padding: 20px;
 }
 
 .mode-button {
@@ -89,6 +97,17 @@
 
 .mode-button:hover:not(.active) {
   background-color: #3c3c3c;
+}
+
+.mode-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: #2d2d2d !important;
+  border-color: #3c3c3c !important;
+}
+
+.mode-button:disabled:hover {
+  background-color: #2d2d2d !important;
 }
 
 .collapse-button {
@@ -143,4 +162,31 @@
 .main-content h1 {
   text-align: center;
   margin-bottom: 30px;
+}
+
+.no-language-message {
+  color: #cccccc;
+  text-align: center;
+  padding: 20px;
+  background-color: #252526;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.add-language-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #2d2d2d;
+  color: #cccccc;
+  border: 1px solid #3c3c3c;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.add-language-button:hover {
+  background-color: #3c3c3c;
 }

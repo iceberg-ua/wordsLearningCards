@@ -1,16 +1,22 @@
 import { useState } from 'react'
+import { useLanguage } from '../contexts/LanguageContext'
 import './AddWord.css'
 
 const AddWord = () => {
   const [word, setWord] = useState('')
   const [translation, setTranslation] = useState('')
   const [message, setMessage] = useState('')
+  const { selectedLanguage } = useLanguage()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     
+    if (!selectedLanguage) {
+      return;
+    }
+
     try {
-      const response = await fetch('http://localhost:5000/api/words', {
+      const response = await fetch(`http://localhost:5000/api/words/${selectedLanguage.id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
