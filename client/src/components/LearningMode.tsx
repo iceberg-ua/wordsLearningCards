@@ -14,6 +14,7 @@ const LearningMode = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
+  const [key, setKey] = useState(0)
   const { selectedLanguage } = useLanguage()
 
   useEffect(() => {
@@ -47,11 +48,17 @@ const LearningMode = () => {
   }
 
   const handlePrev = () => {
-    setCurrentIndex((prev) => (prev > 0 ? prev - 1 : prev))
+    if (currentIndex > 0) {
+      setCurrentIndex(prev => prev - 1)
+      setKey(prev => prev + 1)
+    }
   }
 
   const handleNext = () => {
-    setCurrentIndex((prev) => (prev < words.length - 1 ? prev + 1 : prev))
+    if (currentIndex < words.length - 1) {
+      setCurrentIndex(prev => prev + 1)
+      setKey(prev => prev + 1)
+    }
   }
 
   if (loading) return <div className="message">Loading...</div>
@@ -62,6 +69,7 @@ const LearningMode = () => {
     <div className="learning-mode">
       <div className="card-container">
         <WordCard
+          key={key}
           word={words[currentIndex].word}
           translation={words[currentIndex].translation}
         />

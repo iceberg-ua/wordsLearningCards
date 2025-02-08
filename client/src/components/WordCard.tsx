@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './WordCard.css'
 
 interface WordCardProps {
@@ -7,19 +7,38 @@ interface WordCardProps {
 }
 
 const WordCard = ({ word, translation }: WordCardProps) => {
-  const [showTranslation, setShowTranslation] = useState(false)
+  const [isFlipped, setIsFlipped] = useState(false)
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    // Start with the card invisible
+    setIsVisible(false)
+    
+    // Show the card after a brief delay
+    const timer = setTimeout(() => {
+      setIsVisible(true)
+    }, 50)
+
+    return () => clearTimeout(timer)
+  }, [word, translation])
+
+  const handleClick = () => {
+    if (isVisible) {
+      setIsFlipped(!isFlipped)
+    }
+  }
 
   return (
     <div 
-      className={`word-card ${showTranslation ? 'flipped' : ''}`}
-      onClick={() => setShowTranslation(!showTranslation)}
+      className={`word-card ${isFlipped ? 'flipped' : ''} ${!isVisible ? 'sliding' : ''}`}
+      onClick={handleClick}
     >
       <div className="card-inner">
         <div className="card-front">
-          <h3>{word}</h3>
+          <span>{word}</span>
         </div>
         <div className="card-back">
-          <h3>{translation}</h3>
+          <span>{translation}</span>
         </div>
       </div>
     </div>
