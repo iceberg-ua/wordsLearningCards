@@ -70,7 +70,7 @@ function AppContent() {
           aria-label={isPanelCollapsed ? "Expand sidebar" : "Collapse sidebar"}
         />
       </aside>
-      <main className="content">
+      <main className={`content ${isPanelCollapsed ? 'expanded' : ''}`}>
         {renderContent()}
       </main>
     </div>
