@@ -15,6 +15,7 @@ const LearningMode = () => {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
   const [key, setKey] = useState(0)
+  const [slideDirection, setSlideDirection] = useState<'left' | 'right' | null>(null)
   const { selectedLanguage } = useLanguage()
 
   useEffect(() => {
@@ -49,6 +50,7 @@ const LearningMode = () => {
 
   const handlePrev = () => {
     if (currentIndex > 0) {
+      setSlideDirection('left')
       setCurrentIndex(prev => prev - 1)
       setKey(prev => prev + 1)
     }
@@ -56,6 +58,7 @@ const LearningMode = () => {
 
   const handleNext = () => {
     if (currentIndex < words.length - 1) {
+      setSlideDirection('right')
       setCurrentIndex(prev => prev + 1)
       setKey(prev => prev + 1)
     }
@@ -72,6 +75,7 @@ const LearningMode = () => {
           key={key}
           word={words[currentIndex].word}
           translation={words[currentIndex].translation}
+          direction={slideDirection}
         />
       </div>
       <div className="navigation-controls">

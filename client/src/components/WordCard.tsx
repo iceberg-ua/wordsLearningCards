@@ -4,9 +4,10 @@ import './WordCard.css'
 interface WordCardProps {
   word: string
   translation: string
+  direction: 'left' | 'right' | null
 }
 
-const WordCard = ({ word, translation }: WordCardProps) => {
+const WordCard = ({ word, translation, direction }: WordCardProps) => {
   const [isFlipped, setIsFlipped] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
 
@@ -30,7 +31,7 @@ const WordCard = ({ word, translation }: WordCardProps) => {
 
   return (
     <div 
-      className={`word-card ${isFlipped ? 'flipped' : ''} ${!isVisible ? 'sliding' : ''}`}
+      className={`word-card ${isFlipped ? 'flipped' : ''} ${!isVisible ? `sliding-${direction || 'right'}` : ''}`}
       onClick={handleClick}
     >
       <div className="card-inner">

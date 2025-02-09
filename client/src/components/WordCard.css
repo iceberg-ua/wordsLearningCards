@@ -8,9 +8,15 @@
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.word-card.sliding {
+.word-card.sliding-right {
   opacity: 0;
   transform: translateX(50px);
+  pointer-events: none;
+}
+
+.word-card.sliding-left {
+  opacity: 0;
+  transform: translateX(-50px);
   pointer-events: none;
 }
 
@@ -29,7 +35,8 @@
   transform: rotateY(180deg);
 }
 
-.word-card.sliding .card-inner {
+.word-card.sliding-left .card-inner,
+.word-card.sliding-right .card-inner {
   transform: none !important;
 }
 
