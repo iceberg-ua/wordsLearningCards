@@ -130,4 +130,5 @@ dist
 .pnp.*
 
 # data folder
-server/data/
+server/data/*
+server/data/words_1738952241201.json
