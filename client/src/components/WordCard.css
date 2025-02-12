@@ -20,7 +20,7 @@
   pointer-events: none;
 }
 
-.card-inner {
+.learning-mode .word-card .card-inner {
   position: relative;
   width: 100%;
   height: 100%;
@@ -31,17 +31,17 @@
   border-radius: 10px;
 }
 
-.word-card.flipped .card-inner {
+.learning-mode .word-card.flipped .card-inner {
   transform: rotateY(180deg);
 }
 
-.word-card.sliding-left .card-inner,
-.word-card.sliding-right .card-inner {
+.learning-mode .word-card.sliding-left .card-inner,
+.learning-mode .word-card.sliding-right .card-inner {
   transform: none !important;
 }
 
-.card-front,
-.card-back {
+.learning-mode .word-card .card-front,
+.learning-mode .word-card .card-back {
   position: absolute;
   top: 0;
   left: 0;
@@ -55,8 +55,8 @@
   border-radius: 10px;
 }
 
-.card-front span,
-.card-back span {
+.learning-mode .word-card .card-front span,
+.learning-mode .word-card .card-back span {
   font-size: 32px;
   font-weight: bold;
   color: #333;
@@ -64,7 +64,7 @@
   padding: 20px;
 }
 
-.card-back {
+.learning-mode .word-card .card-back {
   transform: rotateY(180deg);
   background-color: #f8f9fa;
 } 
