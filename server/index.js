@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const cors = require('cors');
 const app = express();
+const port = process.env.PORT || 4000;
 
 app.use(cors());
 app.use(express.json());
@@ -67,6 +68,6 @@ app.post('/api/words/:languageId', (req, res) => {
     res.json({ success: true });
 });
 
-app.listen(5000, () => {
-    console.log('Server running on port 5000');
+app.listen(port, () => {
+    console.log('Server running on port ' + port);
 });
