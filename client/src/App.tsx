@@ -8,7 +8,7 @@ import './App.css'
 function AppContent() {
   const [mode, setMode] = useState<'add' | 'learn'>('add')
   const [isPanelCollapsed, setIsPanelCollapsed] = useState(false)
-  const { selectedLanguage, languages } = useLanguage()
+  const { selectedLanguage } = useLanguage()
   const [isAddingLanguage, setIsAddingLanguage] = useState(false)
 
   const handleModeChange = (newMode: 'add' | 'learn') => {
