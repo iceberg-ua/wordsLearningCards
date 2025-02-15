@@ -1,19 +1,19 @@
 .matching-game {
   width: 100%;
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
 
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
   margin: 0 auto;
 }
 
 .game-card {
-  aspect-ratio: 3/4;
+  aspect-ratio: 16/9;
   perspective: 1000px;
   cursor: pointer;
 }
@@ -66,9 +66,9 @@
 }
 
 .card-back span {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
-  padding: 20px;
+  padding: 10px;
 }
 
 .game-won {
