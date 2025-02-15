@@ -143,6 +143,7 @@ const MatchingGame = () => {
               className={`game-card ${card.isFlipped ? 'flipped' : ''} ${
                 card.isMatched ? 'matched' : ''
               }`}
+              data-type={card.type}
               onClick={() => handleCardClick(card)}
             >
               <div className="card-inner">

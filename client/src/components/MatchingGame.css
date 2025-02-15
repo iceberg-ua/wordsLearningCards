@@ -59,16 +59,23 @@
 .card-back {
   background-color: #f8f9fa;
   transform: rotateY(180deg);
-  color: #333;
-  font-size: 1.2em;
   word-break: break-word;
   border: 1px solid #e0e0e0;
 }
 
+/* Different colors for words and translations */
 .card-back span {
   font-size: 18px;
   font-weight: bold;
   padding: 10px;
+}
+
+.game-card[data-type="word"] .card-back span {
+  color: #a04000; /* Much darker orange color for original words */
+}
+
+.game-card[data-type="translation"] .card-back span {
+  color: #145a32; /* Much darker green color for translations */
 }
 
 .game-won {
