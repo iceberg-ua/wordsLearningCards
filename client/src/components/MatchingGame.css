@@ -30,6 +30,7 @@
   transition: transform 0.6s;
   transform-style: preserve-3d;
   cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .game-card.flipped .card-inner {
@@ -45,27 +46,34 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
+  border-radius: 10px;
   padding: 10px;
   box-sizing: border-box;
 }
 
 .card-front {
-  background-color: #2d2d2d;
-  border: 2px solid #3c3c3c;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
 }
 
 .card-back {
-  background-color: #007bff;
+  background-color: #f8f9fa;
   transform: rotateY(180deg);
-  color: white;
+  color: #333;
   font-size: 1.2em;
   word-break: break-word;
+  border: 1px solid #e0e0e0;
+}
+
+.card-back span {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 20px;
 }
 
 .game-won {
   text-align: center;
-  color: #fff;
+  color: #333;
 }
 
 .game-won h2 {
@@ -74,15 +82,16 @@
 
 .game-won button {
   padding: 12px 24px;
-  background-color: #007bff;
-  color: white;
-  border: none;
+  background-color: #ffffff;
+  color: #333;
+  border: 1px solid #e0e0e0;
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .game-won button:hover {
-  background-color: #0056b3;
+  background-color: #f8f9fa;
 } 
