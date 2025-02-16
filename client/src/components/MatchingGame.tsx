@@ -24,13 +24,18 @@ const MatchingGame = () => {
     }
   }, [selectedLanguage]);
 
+  const getRandomWords = (words: any[], count: number) => {
+    const shuffled = [...words].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, count);
+  };
+
   const fetchWords = async () => {
     try {
       const response = await fetch(`http://localhost:5000/api/words/${selectedLanguage?.id}`);
       const words = await response.json();
       
-      // Take first 6 words for the game (12 cards total)
-      const gameWords = words.slice(0, 6);
+      // Get 10 random words from all available words
+      const gameWords = getRandomWords(words, 10);
       
       const gameCards: Card[] = [];
       gameWords.forEach(word => {
