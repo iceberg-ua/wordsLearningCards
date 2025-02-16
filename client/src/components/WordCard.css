@@ -55,11 +55,18 @@
   border-radius: 10px;
 }
 
-.learning-mode .word-card .card-front span,
-.learning-mode .word-card .card-back span {
-  font-size: 32px;
+.learning-mode .word-card .card-front span {
+  font-size: 28px;
   font-weight: bold;
-  color: #333;
+  color: #a04000; /* Dark orange for original words */
+  word-break: break-word;
+  padding: 20px;
+}
+
+.learning-mode .word-card .card-back span {
+  font-size: 28px;
+  font-weight: bold;
+  color: #145a32; /* Dark green for translations */
   word-break: break-word;
   padding: 20px;
 }
