@@ -84,7 +84,25 @@
 }
 
 .game-won h2 {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  font-size: 48px;
+  background: linear-gradient(45deg, #ff6b00, #2ecc71);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  animation: celebrateText 0.5s ease-out;
+}
+
+@keyframes celebrateText {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .game-won button {
